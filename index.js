@@ -12,6 +12,7 @@ const width = 9; //Width of the Board
 let obstacleMoveInterval = null; //for set time interval to move the cars and logs
 let currTime = 20; //inital time left for completing the game
 let checkWinLoose = null; //for set time interval to check if frog wins or hits
+let gameRunningStatus = false;
 
 function moveFrog(e) {
   //handle keyboard event of moving frog
@@ -98,6 +99,23 @@ function autoMoveObstacles() {
   timeLeftOut.innerHTML = currTime;
 }
 
+function addKeyEventListner(fun) {
+  document.addEventListener("keyup", fun);
+}
+function removeKeyEventListner(fun) {
+  document.removeEventListener("keyup", fun);
+}
+function startIntervalTimers() {
+  obstacleMoveInterval = setInterval(autoMoveObstacles, 500);
+  checkWinLoose = setInterval(handleWinLoose, 100);
+}
+function stopIntervalTimer() {
+  clearInterval(obstacleMoveInterval);
+  obstacleMoveInterval = null;
+  clearInterval(checkWinLoose);
+  checkWinLoose = null;
+}
+
 function loose() {
   let currPos = boxes[currentIndex].classList;
 
@@ -110,12 +128,8 @@ function loose() {
     result.innerHTML = "Oh No You Failed Start Again";
 
     //reset the keyboard event listner,obstacle mover set interval and checkwinloose set time
-    document.removeEventListener("keyup", moveFrog);
-    clearInterval(obstacleMoveInterval);
-    obstacleMoveInterval = null;
-
-    clearInterval(checkWinLoose);
-    checkWinLoose=null;
+    removeKeyEventListner(moveFrog);
+    stopIntervalTimer();
 
     //move back frog to starting
     boxes[currentIndex].classList.remove("frog");
@@ -125,10 +139,8 @@ function loose() {
     //reset the left time back to 20
     currTime = 20;
     timeLeftOut.innerHTML = currTime;
-
-    return true;
+    gameRunningStatus = false;
   }
-  return false;
 }
 
 function win() {
@@ -137,21 +149,15 @@ function win() {
   if (currPos.contains("ending-block")) {
     result.innerHTML = "You Did It Great !";
     //reset the keyboard event listner , obstacle mover set interval and checkwinloose set time
-    document.removeEventListener("keyup", moveFrog);
-    clearInterval(obstacleMoveInterval);
-    obstacleMoveInterval = null;
-
-    clearInterval(checkWinLoose);
-    checkWinLoose=null;
+    removeKeyEventListner(moveFrog);
+    stopIntervalTimer();
 
     //move back frog to starting
     boxes[currentIndex].classList.remove("frog");
     currentIndex = 76;
     boxes[currentIndex].classList.add("frog");
-
-    return true;
+    gameRunningStatus = false;
   }
-  return false;
 }
 
 function handleWinLoose() {
@@ -161,20 +167,18 @@ function handleWinLoose() {
 
 startPauseButton.addEventListener("click", () => {
   if (obstacleMoveInterval) {
-    clearInterval(obstacleMoveInterval);
-    obstacleMoveInterval = null;
-    clearInterval(checkWinLoose);
-    checkWinLoose=null;
-    document.removeEventListener("keyup", moveFrog);
+    stopIntervalTimer();
+    removeKeyEventListner(moveFrog);
   } else {
-    result.innerHTML='Keep Playing';
-    
-    //reset the left time back to 20
-    currTime = 20;
-    timeLeftOut.innerHTML = currTime;
+    if (gameRunningStatus != true) {
+      //reset the left time back to 20 and the result
+      result.innerHTML = "Keep Playing";
+      currTime = 20;
+    }
 
-    checkWinLoose = setInterval(handleWinLoose, 100);
-    obstacleMoveInterval = setInterval(autoMoveObstacles, 750);
-    document.addEventListener("keyup", moveFrog);
+    timeLeftOut.innerHTML = currTime;
+    gameRunningStatus = true;
+    startIntervalTimers();
+    addKeyEventListner(moveFrog);
   }
 });
