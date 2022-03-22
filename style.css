@@ -41,10 +41,10 @@ body{
     width: 3em;
 }
 
-.logs-left,
+/* .logs-left,
 .logs-right{
     background-color: lightblue;
-}
+} */
 
 .l1,.l2,.l3
 {   
@@ -55,10 +55,18 @@ body{
     background-color: lightblue;
 }
 
-.cars-left,
+/* .cars-left,
 .cars-right{
     background-color: lightgrey;
+} */
+
+.c2,.c3{
+    background-color: lightgrey;
 }
+.c1{
+    background-color: black;
+}
+
 .footer{
     height: 20vh;
 }
