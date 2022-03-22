@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,700&family=Roboto:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frogger</title>
+  </head>
+  <body>
+      <!-- Navbar -->
+    <nav class="navbar">
+      <strong>Frogger</strong>
+    </nav>
+
+    <!-- Heading Game Info -->
+    <header class="heading">
+      <h2>Time Left : <span id="time-left">20</span></h2>
+      <h2>Result : <span id="result">0</span></h2>
+      <button id="start-pause">Star/Pause</button>
+    </header>
+
+    <!-- Game Grid -->
+    <section class="game-board">
+      <!-- Empty rows -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="ending-block"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <!-- Empty rows -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <!-- Rows of logs moving left -->
+      <div class="logs-left l5"></div>
+      <div class="logs-left l1"></div>
+      <div class="logs-left l2"></div>
+      <div class="logs-left l3"></div>
+      <div class="logs-left l4"></div>
+      <div class="logs-left l5"></div>
+      <div class="logs-left l1"></div>
+      <div class="logs-left l2"></div>
+      <div class="logs-left l3"></div>
+      <!-- Rows of logs moving right -->
+      <div class="logs-right l3"></div>
+      <div class="logs-right l2"></div>
+      <div class="logs-right l1"></div>
+      <div class="logs-right l5"></div>
+      <div class="logs-right l4"></div>
+      <div class="logs-right l3"></div>
+      <div class="logs-right l2"></div>
+      <div class="logs-right l1"></div>
+      <div class="logs-right l5"></div>
+      <!-- Empty rows -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <!-- Rows of cars moving left -->
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <div class="cars-left"></div>
+      <!-- Rows of cars moving right -->
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <div class="cars-right"></div>
+      <!-- Empty rows -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <!-- Empty rows -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="starting-block frog"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+    <footer class="footer"></footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
