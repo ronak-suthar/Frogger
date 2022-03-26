@@ -1,3 +1,4 @@
+// DOM Elements
 const timeLeftOut = document.querySelector("#time-left");
 const result = document.querySelector("#result");
 const startPauseButton = document.querySelector("#start-pause");
@@ -11,10 +12,12 @@ let currentIndex = 76; //Initial Index of Frog on Board as Starting Position
 const width = 9; //Width of the Board
 let obstacleMoveInterval = null; //for set time interval to move the cars and logs
 let currTime = 20; //inital time left for completing the game
+let playTimeInterval=null;//time set interval for reduing the play time
 let checkWinLoose = null; //for set time interval to check if frog wins or hits
 let gameRunningStatus = false;
 
 function moveFrog(e) {
+  console.log('called',currentIndex)
   //handle keyboard event of moving frog
   boxes[currentIndex].classList.remove("frog");
 
@@ -95,6 +98,9 @@ function autoMoveObstacles() {
   rightLogs.forEach((logRight) => moveRight(logRight));
   leftCars.forEach((carLeft) => moveLeft(carLeft));
   rightCars.forEach((carRight) => moveRight(carRight));
+}
+
+function timeElapse(){
   currTime -= 1;
   timeLeftOut.innerHTML = currTime;
 }
@@ -102,18 +108,23 @@ function autoMoveObstacles() {
 function addKeyEventListner(fun) {
   document.addEventListener("keyup", fun);
 }
+
 function removeKeyEventListner(fun) {
   document.removeEventListener("keyup", fun);
 }
+
 function startIntervalTimers() {
   obstacleMoveInterval = setInterval(autoMoveObstacles, 500);
   checkWinLoose = setInterval(handleWinLoose, 100);
+  playTimeInterval = setInterval(timeElapse,1000);
 }
 function stopIntervalTimer() {
   clearInterval(obstacleMoveInterval);
   obstacleMoveInterval = null;
   clearInterval(checkWinLoose);
   checkWinLoose = null;
+  clearInterval(playTimeInterval);
+  playTimeInterval=null;
 }
 
 function loose() {
