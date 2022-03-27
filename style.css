@@ -175,8 +175,8 @@ body {
   }
 }
 
-@media screen and (max-height:850px) {
+@media screen and (max-height:750px) {
   body{
-    font-size: 80%;
+    font-size: 62.5%;
   }
 }
