@@ -1,42 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
 /*Color Platte : #59981A,#81B622,#ECF87F,#59981A*/
 
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Dela Gothic One', cursive;
-  background-color: lightcyan;
+  font-family: "Dela Gothic One", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ECF87F;
+  background-color: #ecf87f;
 }
 
 .navbar {
   text-align: center;
-  font-size: 64px;
+  font-size: 3.5em;
 }
-
 
 .heading {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
   justify-content: space-around;
-  background-color: #59981A;
+  background-color: #59981a;
   color: white;
   margin-top: 5px;
 }
 
 .heading button {
-  font-size: 25px;
+  font-size: 2.5em;
 }
 
 .game-section {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
-  justify-content: space-evenly;
+}
+
+.gameing {
+  display: flex;
+  flex-grow: 9999;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -44,25 +47,42 @@ body {
   background-color: lightgreen;
 }
 
-.ending-block{
+.ending-block {
   background-image: url(./images/stone.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
   background-color: lightgreen;
 }
 
-.start-point{
+.start-point {
   background-image: url(./images/start-point.png);
-  background-size: 4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
 }
 
+.game-control {
+  margin: 1em;
+}
+
+#start-pause {
+  background-color: #59981a; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  display: inline-block;
+  padding: 1em 2em;
+  font-size: 1.25em;
+  border-radius: 1em;
+}
+
 .game-board {
-  width: 36em;
-  height: 36em;
   display: flex;
   flex-wrap: wrap;
   border: solid black;
+  width: 31.5em;
+  height: 31.5em;
   border-radius: 1em;
   padding: 15px 0px 15px 0px;
   margin: 20px;
@@ -70,21 +90,25 @@ body {
 }
 
 .game-board div {
-  height: 4em;
-  width: 4em;
+  height: 3.5em;
+  width: 3.5em;
 }
 
 .game-info {
-    display: flex;
-    margin-left: 20px;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.5em;
+  flex-grow: 1;
+  display: flex;
+  margin: 20px;
+  padding: 1em;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+  border: solid black;
+  border-radius: 2em;
 }
 
-.grass{
+.grass {
   background-image: url(./images/grass.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
   background-color: lightgreen;
 }
@@ -94,7 +118,7 @@ body {
 .l2,
 .l3 {
   background-image: url(./images/wood-log.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
   background-color: lightblue;
 }
@@ -104,7 +128,7 @@ body {
 .l5 {
   background-color: lightblue;
   background-image: url(./images/river.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
 }
 
@@ -113,7 +137,7 @@ body {
 .c3,
 .c4 {
   background-image: url(./images/road.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
   background-color: lightgray;
 }
@@ -121,44 +145,30 @@ body {
 /*c1 is the Car element*/
 .c1 {
   background-image: url(./images/car.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
   background-color: lightgray;
 }
 
-#start-pause{
-  background-color: #59981A; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 10em;
-  border-radius: 2em;
-  font-size: 1em;
-}
-
 .frog {
   background-image: url(./images/frog.png);
-  background-size :4em;
+  background-size: 3.5em;
   background-repeat: no-repeat;
 }
 
-.footer{
+.footer {
   display: none;
   color: red;
   margin-left: 10px;
 }
 
-@media screen and (max-width:750px) {
-  .footer{
-    display:block;
-    
+@media screen and (max-width: 700px) {
+  .footer {
+    display: block;
   }
 
-  .heading,.game-section{
+  .heading,
+  .game-section {
     display: none;
   }
 }
